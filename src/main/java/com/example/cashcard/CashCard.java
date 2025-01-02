@@ -1,6 +1,21 @@
 package com.example.cashcard;
 
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.Data;
 
-record CashCard(@Id Long id, Double amount) {
+@Entity
+@Data
+public class CashCard {
+    @Id
+    private Long id;
+    private Double amount;
+
+    CashCard() {
+    }
+
+    CashCard(Long id, Double amount) {
+        this.id = id;
+        this.amount = amount;
+    }
 }
